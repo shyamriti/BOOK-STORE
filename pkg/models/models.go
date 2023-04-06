@@ -6,3 +6,9 @@ type Person struct {
 	Email       string `json:"email"`
 	PhoneNumber string `json:"phone"`
 }
+
+type JsonResponse struct {
+    Type    string `json:"type"`
+    Data    []Person `json:"data"`
+    Message string `json:"message"`
+}
