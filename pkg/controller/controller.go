@@ -7,7 +7,6 @@ import (
 	"go-sqlite/pkg/models"
 	"net/http"
 	"strconv"
-
 	"github.com/gorilla/mux"
 )
 
@@ -29,7 +28,6 @@ func InsertHandleFunc(w http.ResponseWriter, r *http.Request) {
 func UpdateHandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
-
 	id, err := strconv.Atoi(vars["id"])
 	person := models.Person{}
 	json.NewDecoder(r.Body).Decode(&person)
@@ -43,12 +41,10 @@ func UpdateHandleFunc(w http.ResponseWriter, r *http.Request) {
 
 func DeleteHandleFunc(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-
 	id, err := strconv.Atoi(vars["id"])
 	if err != nil {
 		fmt.Printf("err: %v\n", err)
 	}
-
 	database.Delete(id)
 	json.NewEncoder(w).Encode("Record was deleted")
 
