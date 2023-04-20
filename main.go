@@ -10,36 +10,22 @@ import (
 )
 
 func main() {
-	// database.Connection()
-
-	// defer database.Db.Close()
-
-	// http.HandleFunc("/getall", controller.GetAllHandleFunc)
-	// http.HandleFunc("/getone", controller.GetOneHandleFunc)
-	// http.HandleFunc("/insert", controller.InsertHandleFunc)
-	// http.HandleFunc("/update", controller.UpdateHandleFunc)
-	// http.HandleFunc("/delete", controller.DeleteHandleFunc)
-
-	// fmt.Println("Server is running")
-	// if err := http.ListenAndServe(":8000", nil); err != nil {
-	// 	log.Fatal(err)
-	// }
-
+	
 	// Init the mux router
 	Router := mux.NewRouter()
 
 	// Route handles & endpoints
 
-	// Get all movies
+	// Get all data
 	Router.HandleFunc("/person", controller.GetAllHandleFunc).Methods("GET")
 
-	// Create a movie
+	// Insert a data
 	Router.HandleFunc("/person", controller.InsertHandleFunc).Methods("POST")
 
-	// Delete a specific movie by the movieID
+	// Update a specific data by the id
 	Router.HandleFunc("/person/{id}", controller.UpdateHandleFunc).Methods("PUT")
 
-	// Delete all movies
+	// delete a specific data by the id
 	Router.HandleFunc("/person/{id}", controller.DeleteHandleFunc).Methods("DELETE")
 
 	// serve the app
